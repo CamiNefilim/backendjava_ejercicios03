@@ -38,12 +38,12 @@ Este repositorio contiene una serie de ejercicios de programación en Java, enfo
 1. Clona este repositorio en tu máquina local:
 
     ```bash
-    git clone https://github.com/CamiNefilim/cajaRegistradoraPython.git
+    git clone https://github.com/CamiNefilim/backendjava_ejercicios03.git
     ```
 2. Navega a la carpeta del proyecto:
 
  ```bash
-cd tu-repositorio
+cd backendjava_ejercicios03
 ```
 
 3. Abre el proyecto en tu IDE preferido.
