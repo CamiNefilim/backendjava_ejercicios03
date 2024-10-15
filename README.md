@@ -42,9 +42,9 @@ Este repositorio contiene una serie de ejercicios de programación en Java, enfo
     ```
 2. Navega a la carpeta del proyecto:
 
- ```bash
-cd backendjava_ejercicios03
-```
+    ```bash
+   cd backendjava_ejercicios03
+   ```
 
 3. Abre el proyecto en tu IDE preferido.
 4. Ejecuta los ejercicios desde la clase principal.
