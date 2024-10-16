@@ -42,6 +42,15 @@ public class Main {
 			case "5":	
 				obtenerRango();
 				break;
+			case "6":	
+				obtenerDesviacionTipica();
+				break;
+			case "7":	
+				obtenerCoeficienteVariacion();
+				break;
+			case "8":	
+				obtenerMatrizDiferencia();
+				break;
 			case "9":
 				System.out.println("Cierre del sistema.");
 				return;
@@ -73,7 +82,7 @@ public class Main {
 		}
 		double promedio = (double)suma/largo;
 		System.out.println("Array de numeros: " + numeros);
-		System.out.println("Promedio: " + promedio);
+		System.out.println(String.format("Promedio: %.2f", promedio));
 	}
 	
 	private static void obtenerMayorNumero() {
@@ -140,8 +149,74 @@ public class Main {
 			suma += numero;
 		}
 		double promedio = (double)suma/largo;
+		
+		// Calcular la varianza: Promedio de los cuadrados de las diferencias entre cada número y la media.
+        double sumaDiferenciasCuadradas = 0;
+        for (int num : numeros) {
+            sumaDiferenciasCuadradas += Math.pow(num - promedio, 2);
+        }
+        double varianza = sumaDiferenciasCuadradas / largo;
+        
+        // Calcular la desviación estándar: Raíz cuadrada de la varianza.
+        double desviacionEstandar = Math.sqrt(varianza);        
+        
 		System.out.println("Array de numeros: " + numeros);
-		System.out.println("Promedio: " + promedio);
+		System.out.println(String.format("Promedio: %.2f", promedio));
+        System.out.println(String.format("Varianza: %.2f", varianza));
+		System.out.println(String.format("Desviación Estándar: %.2f", desviacionEstandar));
+	}
+	
+	private static void obtenerCoeficienteVariacion() {
+		ArrayList<Integer> numeros = new ArrayList<Integer>();
+		Random aleatorio = new Random();
+		int largo = aleatorio.nextInt(10)+1;
+		int suma = 0;		
+		for(int i=0; i<largo; i++) {
+			int numero = aleatorio.nextInt(100);
+			numeros.add(numero);		
+			suma += numero;
+		}
+		double promedio = (double)suma/largo;
+		
+		// Calcular la varianza: Promedio de los cuadrados de las diferencias entre cada número y la media.
+        double sumaDiferenciasCuadradas = 0;
+        for (int num : numeros) {
+            sumaDiferenciasCuadradas += Math.pow(num - promedio, 2);
+        }
+        double varianza = sumaDiferenciasCuadradas / largo;
+        
+        // Calcular la desviación estándar: Raíz cuadrada de la varianza.
+        double desviacionEstandar = Math.sqrt(varianza); 
+        
+        // Calcular el coeficiente de variación
+        double coeficienteDeVariacion = (desviacionEstandar / promedio) * 100;
+        
+        System.out.println("Array de numeros: " + numeros);
+		System.out.println(String.format("Promedio: %.2f", promedio));
+        System.out.println(String.format("Varianza: %.2f", varianza));
+		System.out.println(String.format("Desviación Estándar: %.2f", desviacionEstandar));
+		System.out.println(String.format("Coeficiente de Variación: %.2f%%", coeficienteDeVariacion));
+	}
+	
+	private static void obtenerMatrizDiferencia() {
+		ArrayList<Integer> numeros = new ArrayList<Integer>();
+		Random aleatorio = new Random();
+		int largo = aleatorio.nextInt(10)+1;
+		//Defino los numeros del arreglo
+		for(int i=0; i<largo; i++) {
+			int numero = aleatorio.nextInt(10)+1;
+			numeros.add(numero);
+		}
+		System.out.println("Array de numeros: " + numeros);
+		System.out.println("Matriz de diferencia: ");
+		// Imprime la matriz
+        for (int i = 0; i < largo; i++) {
+            for (int j = 0; j < largo; j++) {
+                System.out.print(numeros.get(i) - numeros.get(j) + "	");
+            }
+            System.out.println(); // Salto de línea
+        }
+		
 	}
 
 }
